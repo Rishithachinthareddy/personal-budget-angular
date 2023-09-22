@@ -1,9 +1,10 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const port = 3000;
 const data = require("./data.json");
 
-app.use('/', express.static('public'));
+app.use(cors());
 
 const budget = { 
     myBudget: [
@@ -20,10 +21,6 @@ const budget = {
         budget: 90
     }
 ]};
-
-app.get('/hello', (req, res) => {
-    res.send("Hello World!");
-});
 
 app.get('/budget', (req, res) => {
     res.send(data);
