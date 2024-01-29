@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Budget</title>
+    <title>This is the title of the Personal Budget</title> <!-- This is an SEO Change -->a
+    <meta name="desc_of_content" content="The below provided is the brief description of the provided page content.">  <!-- This is an SEO Change -->
     <link rel="stylesheet" href="/reset.css">
     <link rel="stylesheet" href="/main.css">
 </head>
 <body>
-
+    <header>
+        <!--This is the content from the header-->
+        Information from header <!-- This is a Semantic HTML Change -->
+    </header>
     <div class="menu">
         <ul>
             <li><a href="/">Homepage</a></li>
@@ -41,6 +45,9 @@
                 <p>
                     What if your clothing budget ended? You will get an alert. The goal is to never go over the budget.
                 </p>
+
+                <label for="username">Enter Username:</label> <!-- This is an A11y Change -->
+                <input type="text" id="username" name="username">
             </div>
     
             <div class="text-box">
@@ -66,8 +73,19 @@
                     you would get surprised! Proper budget management depends on real data... and this
                     app will help you with that!
                 </p>
+
+                <h2> <!--This is an SEO Change -->
+                    This is the second heading and below provided are paragraphs in p tag.
+                </h2>
+                <p>
+                    1. This is the first paragraph tag
+                    2. This is under second paragraph tag
+                </p>
             </div>
-    
+            <p>
+                <img src="https://imageio.forbes.com/specials-images/imageserve/5d35eacaf1176b0008974b54/2020-Chevrolet-Corvette-Stingray/0x0.jpg?format=jpg&crop=4560,2565,x790,y784,safe&width=960" alt="Red car image">  <!-- This is an A11y Change -->
+
+            </p>
             <div class="text-box">
                 <h1>Alerts</h1>
                 <p>
@@ -89,8 +107,26 @@
                 <p>
                     This app is free!!! And you are the only one holding your data!
                 </p>
-            </div>
 
+                <form> <!-- This is an A11y Change -->
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            
+            <nav> <!-- This is a Semantic HTML Change -->
+                <ul>
+                    <li><a href="#homelink">Home</a></li>
+                    <li><a href="#aboutlink">About Us</a></li>
+                    <li><a href="#serviceslink">Services</a></li>
+                    <li><a href="#contactlink">Contact</a></li>
+                </ul>
+            </nav>
         </div>
 
     </div>
@@ -100,6 +136,8 @@
             All rights reserved &copy; Fabio Nolasco
         </div>
     </div>
-
+<footer>
+    This is the information in the footer section <!-- This is a Semantic HTML Change -->
+</footer>
 </body>
 </html>
