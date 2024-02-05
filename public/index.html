@@ -7,8 +7,14 @@
     <meta name="desc_of_content" content="The below provided is the brief description of the provided page content.">  <!-- This is an SEO Change -->
     <link rel="stylesheet" href="/reset.css">
     <link rel="stylesheet" href="/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.7/axios.min.js" integrity="sha512-NQfB/bDaB8kaSXF8E77JjhHG5PM6XVRxvHzkZiwl3ddWCEPBa23T76MuWSwAJdMGJnmQqM0VeY9kFszsrBEFrQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js" integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
+
+
 </head>
 <body>
+
     <header>
         <!--This is the content from the header-->
         Information from header <!-- This is a Semantic HTML Change -->
@@ -105,7 +111,7 @@
             <div class="text-box">
                 <h1>Free</h1>
                 <p>
-                    This app is free!!! And you are the only one holding your data!
+                    <canvas id="mychart" width="400" height = "400"></canvas>
                 </p>
 
                 <form> <!-- This is an A11y Change -->
@@ -133,11 +139,57 @@
 
     <div class="bottom">
         <div class="center">
-            All rights reserved &copy; Fabio Nolasco
+            All rights reserved &copy; Rishitha Chinthareddy
         </div>
     </div>
 <footer>
     This is the information in the footer section <!-- This is a Semantic HTML Change -->
 </footer>
+
+
+
+<script>
+var dataSource= {
+        datasets: [
+            {
+                data: [25,275,100],
+                backgroundColor: [
+                '#ffcd56',
+                '#ff6384',
+                '#36a2eb',
+                '#fd6b19',
+                ],
+            }
+        ],
+        labels: [
+                    'Eat Out',
+                    'Rent',
+                    'Groceries'
+                ]
+            };
+    function createChart()
+    {
+        var ctx = document.getElementById("mychart").getContext("2d")
+    
+        var myPieChart = new Chart (ctx, {
+            type : 'pie',
+            data : dataSource
+        });
+    } 
+    function getBudget() {
+            axios.get('/budget')
+            .then(function (res) {
+                for (var i = 0; i < res.data.myBudget.length; i++) {
+                    dataSource.datasets[0].data[i] = res.data.myBudget[i].budget;
+                    dataSource.labels[i] = res.data.myBudget[i].title;
+                    
+                }
+                createChart();
+            });
+        }
+
+        getBudget();
+</script>
+
 </body>
 </html>
